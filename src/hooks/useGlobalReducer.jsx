@@ -12,6 +12,7 @@ export function StoreProvider({ children }) {
     // Initialize reducer with the initial state.
     const [store, dispatch] = useReducer(storeReducer, initialStore())
     // Provide the store and dispatch method to all child components.
+    const action
     return <StoreContext.Provider value={{ store, dispatch }}>
         {children}
     </StoreContext.Provider>
@@ -19,6 +20,6 @@ export function StoreProvider({ children }) {
 
 // Custom hook to access the global state and dispatch function.
 export default function useGlobalReducer() {
-    const { dispatch, store } = useContext(StoreContext)
-    return { dispatch, store };
+    const { dispatch, store, getAgenda, createNewAgenda, postContact, getContacts, updatedContacts, removeContacts} = useContext(StoreContext)
+    return { dispatch, store, getAgenda, createNewAgenda, postContact, getContacts, updatedContacts, removeContacts };
 }
