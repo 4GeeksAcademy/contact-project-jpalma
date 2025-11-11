@@ -1,4 +1,6 @@
-export function getAgenda(dispatch, payload){
+import axios from 'axios'
+
+export const getAgenda=(dispatch, payload)=>{
     axios.get("https://playground.4geeks.com/contact/agendas/gitttjonzzz")
     .then(response => response.data)
     .then(data => {
@@ -16,7 +18,7 @@ export function getAgenda(dispatch, payload){
     });
 }
 
-export function createNewAgenda(dispatch, payload){
+export const createNewAgenda=(dispatch, payload)=>{
    axios.post("https://playground.4geeks.com/contact/agendas/gitttjonzzz").then(postResponse => postResponse.data)
   .then(postResponse => postResponse.data)
   .then(postData=>{});
@@ -25,10 +27,10 @@ export function createNewAgenda(dispatch, payload){
   getAgenda(dispatch)
 }
 
-export function postContact(dispatch, payload){
-    const {name, phone, email, address } =payload
+export const postContact = (dispatch, payload)=>{
+    const {name, phone, email, address } = payload
 
-    axios.post("https://playground.4geeks.com/contact/agendas/gitttjonzzz", {
+    axios.post("https://playground.4geeks.com/contact/agendas/gitttjonzzz/contacts", {
     name,
     phone,
     email,
@@ -40,21 +42,16 @@ export function postContact(dispatch, payload){
   });
 }
 
-export function getContacts(dispatch, payload){
+export const getContacts=(dispatch, payload)=>{
     axios.get("https://playground.4geeks.com/contact/agendas/gitttjonzzz/contacts")
     .then(response => response.data)
-    .then(data => {
-        dispatch({
-            type:"SET_CONTACTS",
-            payload: {contacts: data.contacts}
-        }) 
-    }) 
+    .then(data => {}) 
     .catch(error => {
         console.log("Error fetching contacts:", error);
     });
 }
 
-export function updatedContacts(dispatch, payload){
+export const updatedContacts =(dispatch, payload)=>{
     const { name, phone, email, address, id } = payload;
 
     axios.put(`https://playground.4geeks.com/contact/agendas/gitttjonzzz/contacts/${id}`, {
@@ -68,7 +65,7 @@ export function updatedContacts(dispatch, payload){
         getContacts(dispatch);
     })
 }
-export function removeContacts(dispatch, payload){
+export const removeContacts=(dispatch, payload)=>{
     axios.delete(`https://playground.4geeks.com/contact/agendas/gitttjonzzz/contacts/13${payload}`, {
 }).then(deleteResponse => deleteResponse.data)
   .then(deleteData => {

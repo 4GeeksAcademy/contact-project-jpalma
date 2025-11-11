@@ -8,14 +8,17 @@ export const initialStore=()=>{
 
 export default function storeReducer(store, action = {}) {
   switch(action.type){
-    case 'add_task':
-
-      const { id,  color } = action.payload
-
+    case 'SET_AGENDA':
       return {
         ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
+        agenda: action.payload.agenda,
+        contacts: action.payload.contacts
       };
+    case 'REMOVE_CONTACT':
+      return{
+        ...store,
+        contacts: store.contacts.filter(contact =>contact.id == action.payloaf)
+      }
     default:
       throw Error('Unknown action.');
   }    
