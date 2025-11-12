@@ -71,10 +71,12 @@ export const updatedContacts =(dispatch, payload)=>{
         getContacts(dispatch);
     })
 }
-export const removeContacts=(dispatch, id)=>{
-    axios.delete(`https://playground.4geeks.com/contact/agendas/gitttjonzzz/contacts/${id}`, {
+export const removeContacts=(dispatch, payload)=>{
+    axios.delete(`https://playground.4geeks.com/contact/agendas/gitttjonzzz/contacts/${payload}`, {
 }).then(deleteResponse => deleteResponse.data)
   .then(deleteData => {
     getContacts(dispatch)
-  });
+  }) .catch(error => {                                    
+        console.log("Error deleting contact:", error);   
+    });          ;
 }

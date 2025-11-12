@@ -1,8 +1,6 @@
-.user-image img{
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 8px;
+.contact-image{
+    width: 150px;
+    height: 150px;
 }
 .card{
     display: flex;
