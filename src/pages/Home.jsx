@@ -7,7 +7,7 @@ const Home = () => {
 
   useEffect(() => {
     getAgenda();
-  }, [getAgenda]);
+  }, []);
 
   return (
     <div className="text-center mt-5">

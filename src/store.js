@@ -3,7 +3,6 @@ export const initialStore=()=>{
     message: null,
     agenda: null,
     contacts: [],
-    usedImages:[]
   }
 }
 
@@ -25,11 +24,6 @@ export default function storeReducer(store, action = {}) {
         ...store,
         contacts: store.contacts.filter(contact =>contact.id !== action.payload)
       }
-      case 'ADD_USED_IMAGE':
-        return{
-          ...store,
-          usedImages: [...(store.usedImages || []), action.payload]
-        }
     default:
       throw Error('Unknown action.');
   }    

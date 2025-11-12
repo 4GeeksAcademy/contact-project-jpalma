@@ -15,27 +15,15 @@ if(!characterImage){
     .then(getResponse => getResponse.data)
     .then(getData => {
 
-        const images = getData.filter(char => char.image);
-        const { usedImages = [] } = store;
-        const availablePictures = images.filter(img => !usedImages.includes(img.image));
-        const picturesPool = availablePictures.length > 0 ? availablePictures : images;
-        const randomImage = picturesPool[Math.floor(Math.random() * picturesPool.length)].image;
-
-      setCharacterImage(randomImage);
-      dispatch({type: 'ADD_USED_IMAGE', payload: randomImage})
+   
+      
     })
 }
-}, [characterImage, store.usedImages]);
+}, )
 
 const removeContact=()=>{
-    if(deleteContact)
-        return
 
-    setDelectContact(true)
-    removeContacts(contact.id)
-    dispatch({type:'REMOVE_CONTACT', payload:contact.id})
 }
-
     return(
     <>
         <div className='user-image'>

@@ -7,25 +7,25 @@ export const getAgenda=(dispatch, payload)=>{
     .then(data => {
         if(data.detail === `Agenda "gitttjonzzz" does not exist.`){
             createNewAgenda(dispatch)
-        } 
+        }else{
             dispatch({
                 type: 'SET_AGENDA',
                 payload: {agenda: data.slug, contacts: data.contacts}
             })
         }
-    )
+    })
     .catch(error => {
         console.log("Error fetching agenda:", error);
     });
 }
 
 export const createNewAgenda=(dispatch, payload)=>{
-   axios.post("https://playground.4geeks.com/contact/agendas/gitttjonzzz").then(postResponse => postResponse.data)
+   axios.post("https://playground.4geeks.com/contact/agendas/gitttjonzzz")
   .then(postResponse => postResponse.data)
-  .then(postData=>{});
+  .then(postData=>{
+    getAgenda(dispatch)
+  });
 
-
-  getAgenda(dispatch)
 }
 
 export const postContact = (dispatch, payload)=>{
@@ -52,7 +52,7 @@ export const getContacts=(dispatch, payload)=>{
             payload: data
         })
     }) 
-    .catch(error => {-
+    .catch(error => {
         console.log("Error fetching contacts:", error);
     });
 }
@@ -72,7 +72,7 @@ export const updatedContacts =(dispatch, payload)=>{
     })
 }
 export const removeContacts=(dispatch, id)=>{
-    axios.delete(`https://playground.4geeks.com/contact/agendas/gitttjonzzz/contacts/13${id}`, {
+    axios.delete(`https://playground.4geeks.com/contact/agendas/gitttjonzzz/contacts/${id}`, {
 }).then(deleteResponse => deleteResponse.data)
   .then(deleteData => {
     getContacts(dispatch)
