@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react' 
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import axios from 'axios'
+import './ContactCard.css'
 
 const userContactCard=({contact, harryPotterCharacter})=>{
     const {store,dispatch, removeContacts}= useGlobalReducer()
@@ -14,10 +15,11 @@ if(!characterImage){
     .then(getResponse => getResponse.data)
     .then(getData => {
 
-      const images = getData.filter(char => char.image);
-      const availablePictures= images.filter(img=> !store.usedImages.includes(img.image))
-      const pictureLength = availablePictures.length >0 ? availablePictures: images;
-      const randomImage = images[Math.floor(Math.random() * images.length)].image;
+        const images = getData.filter(char => char.image);
+        const { usedImages = [] } = store;
+        const availablePictures = images.filter(img => !usedImages.includes(img.image));
+        const picturesPool = availablePictures.length > 0 ? availablePictures : images;
+        const randomImage = picturesPool[Math.floor(Math.random() * picturesPool.length)].image;
 
       setCharacterImage(randomImage);
       dispatch({type: 'ADD_USED_IMAGE', payload: randomImage})
@@ -40,11 +42,12 @@ const removeContact=()=>{
             <img src={characterImage} />
         </div>
         <div className='card'>
-            <p>{contact.name}</p>
+            <p className='name'>{contact.name}</p>
             <div>
-                <p>{contact.phone}</p>
+                <p className='phone'>{contact.phone}</p>
             </div>
-            <button className='btn' onClick={removeContact}>Remove Contact</button>
+            <p className='email'>{contact.email}</p>
+            <button className='remove-button' onClick={removeContact}>🗑</button>
         </div>
     </>
     )

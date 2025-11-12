@@ -11,7 +11,7 @@ const Contact = () => {
     address: "",
   });
 
-  const { store, dispatch, postContacts } = useGlobalReducer();
+  const { dispatch } = useGlobalReducer();
 
   const navigate = useNavigate();
 ;
@@ -26,8 +26,11 @@ const handleContact = (e) => {
   navigate("/");
 };
 
+
 return(
           <form className="container">
+            <div className="container-input">
+              <div className="contact-info">
                 <div className="name-input">
                   <label>Name:</label>
                   <input
@@ -72,6 +75,8 @@ return(
                 <div className="create-contact">
                   <button onClick={(e) => handleContact(e)}>Create Contact</button>
                 </div>
+              </div>
+            </div>
           </form>
 )
 }

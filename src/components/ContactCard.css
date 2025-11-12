@@ -1,0 +1,29 @@
+.user-image img{
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.name{
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.phone{
+    margin-top: 5px;
+    font-weight: bold;
+}
+.email{
+    margin-top: 5px;
+    font-weight: bold;
+}
+.remove-button{
+    background-color: gray;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 5px 5px 5px;
+}
