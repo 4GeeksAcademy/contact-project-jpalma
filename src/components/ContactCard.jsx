@@ -4,11 +4,8 @@ import axios from 'axios'
 import './ContactCard.css'
 
 
-const userContactCard=({contact, harryPotterCharacter})=>{
-    const {store,dispatch, removeContacts}= useGlobalReducer()
-    const[deleteContact, setDeleteContact] =useState(false)
-
-   
+const userContactCard=({ contact })=>{
+    const {removeContacts}= useGlobalReducer()
 
 
     return(
@@ -22,6 +19,7 @@ const userContactCard=({contact, harryPotterCharacter})=>{
                 <p className='phone'>{contact.phone}</p>
             </div>
             <p className='email'>{contact.email}</p>
+            <button className='edit-button' onClick={()=>updateContacts}>Edit Contact</button>
             <button className='remove-button' onClick={()=>removeContacts(contact.id)}>🗑</button>
         </div>
     </>
