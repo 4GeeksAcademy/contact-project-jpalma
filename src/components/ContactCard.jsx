@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import axios from 'axios'
 import './ContactCard.css'
-
+import {EditContact} from './EditContact.jsx'
 
 const userContactCard=({ contact })=>{
     const {removeContacts}= useGlobalReducer()
@@ -19,7 +19,7 @@ const userContactCard=({ contact })=>{
                 <p className='phone'>{contact.phone}</p>
             </div>
             <p className='email'>{contact.email}</p>
-            <button className='edit-button' onClick={()=>updateContacts}>Edit Contact</button>
+            <EditContact contact={contact} />
             <button className='remove-button' onClick={()=>removeContacts(contact.id)}>🗑</button>
         </div>
     </>

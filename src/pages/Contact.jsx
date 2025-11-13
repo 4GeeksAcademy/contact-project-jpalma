@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { useNavigate } from "react-router-dom";
 import { postContact } from "../hooks/actions.js";
-
 const Contact = () => {
   const [newContact, setNewContact] = useState({
     name: "",
