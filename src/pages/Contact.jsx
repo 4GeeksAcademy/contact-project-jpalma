@@ -34,6 +34,7 @@ return(
                   <label>Name:</label>
                   <input
                     type="text"
+                    placeholder="Enter your full name"
                     value={newContact.name}
                     onChange={(e) => setNewContact({ ...newContact, name: e.target.value })}
                   />
@@ -41,7 +42,8 @@ return(
                 <div className="phone-number">
                   <label>Phone Number:</label>
                   <input
-                    type="number"
+                    type="tel"
+                    placeholder="Enter your phone number "
                     value={newContact.phone}
                     onChange={(e) =>
                       setNewContact({ ...newContact, phone: e.target.value })
@@ -52,6 +54,7 @@ return(
                   <label>Email:</label>
                   <input
                     type="email"
+                    placeholder="Enter your email"
                     value={newContact.email}
                     onChange={(e) =>
                       setNewContact({ ...newContact, email: e.target.value })
@@ -61,7 +64,8 @@ return(
                 <div className="address">
                   <label>Address:</label>
                   <input
-                    type="text"
+                    type="text" 
+                    placeholder="Enter your address"
                     value={newContact.address}
                     onChange={(e) =>
                       setNewContact({
@@ -72,7 +76,7 @@ return(
                   />
                 </div>
                 <div className="create-contact">
-                  <button onClick={(e) => handleContact(e)}>Create Contact</button>
+                  <button onClick={(e) => handleContact(e)}>Create Wizard</button>
                 </div>
               </div>
             </div>

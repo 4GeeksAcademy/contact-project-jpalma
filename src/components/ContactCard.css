@@ -1,26 +1,47 @@
+body{
+    background-image:url("//www.thesun.co.uk/wp-content/uploads/2021/12/StarrySky.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.container{
+    margin-bottom: 30px;
+    
+}
 .contact-image{
-    width: 150px;
-    height: 150px;
+    width: 270px;
+    height: 250px;
+    margin-bottom: 10px;
 }
 .card{
     display: flex;
     align-items: center;
     justify-content: center;
+    border: none;
+     margin: 0 auto;
+    padding: 5px 5px 5px 5px;
+    box-sizing: border-box;
+    width: 20%;
+   word-break: break-all;
+  background: linear-gradient(-180deg, rgba(255,255,255,0.50) 0%, rgba(0,0,0,0.50) 100%);
+    
+    
 }
 .name{
     margin-bottom: 10px;
-    font-weight: bold;
+    color: white;
 }
 .phone{
     margin-top: 10px;
     font-weight: bold;
+    color: white;
 }
 .email{
     margin-top: 2px;
-    font-weight: bold;
+    color: white;
 }
 .remove-button{
-    background-color: gray;
+    background-color: red;
     border: none;
     border-radius: 8px;
     padding: 5px 5px 5px 5px;
@@ -50,4 +71,5 @@
 }
 .edit-contact{
     margin-bottom: 5px;
+
 }

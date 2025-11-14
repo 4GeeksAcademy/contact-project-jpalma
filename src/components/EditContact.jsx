@@ -20,10 +20,10 @@ const [editing, setEditing] =useState(false)
 useEffect(() => {
     if (contact) {
       setEditContact({
-        name: contact.name || "",
-        phone: contact.phone || "",
-        email: contact.email || "",
-        address: contact.address || "",
+        name: contact.name,
+        phone: contact.phone ,
+        email: contact.email ,
+        address: contact.address,
         id: contact.id
       });
     }
@@ -34,6 +34,14 @@ useEffect(() => {
     setEditContact( prev => ({...prev , [name]: value }));
   };
  const saveChanges=()=>{
+  if(editContact.name ==="",
+    editContact.phone ==="",
+    editContact.email ==="",
+    editContact.address ===""
+  ){
+    alert("You must type in the correct information to save!")
+    return;
+  }
   if(!editContact.id){
       return
  }
@@ -53,7 +61,7 @@ useEffect(() => {
         
             <input type ="text" onChange={handleInputChange} value={editContact.name}
             name="name" />
-                <input type ="" onChange={handleInputChange} value={editContact.phone}
+                <input type ="tel" onChange={handleInputChange} value={editContact.phone}
             name="phone" />
             <input type ="email" onChange={handleInputChange} value={editContact.email}
             name="email" />

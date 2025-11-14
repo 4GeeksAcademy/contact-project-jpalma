@@ -10,8 +10,9 @@ const userContactCard=({ contact })=>{
 
     return(
     <>
+    <div className='container'>
         <div className='user-image'>
-            <img className="contact-image" src= "https://cdn-icons-png.flaticon.com/512/2885/2885526.png" alt="Contact profile"/>
+            <img className="contact-image" src= "https://wallpapers.com/images/hd/harry-potter-all-characters-1024-x-768-1ptifhpz3q83lftn.jpg" alt="Contact profile"/>
         </div>
         <div className='card'>
             <p className='name'>{contact.name}</p>
@@ -22,6 +23,7 @@ const userContactCard=({ contact })=>{
             <EditContact contact={contact} />
             <button className='remove-button' onClick={()=>removeContacts(contact.id)}>🗑</button>
         </div>
+    </div>
     </>
     )
 
